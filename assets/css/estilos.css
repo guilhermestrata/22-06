@@ -1,0 +1,46 @@
+
+
+input, select{
+    margin-bottom: 10px;
+}
+h2{
+    margin-bottom: 10px;
+}
+textarea{
+    resize: none;
+}
+.logoff{
+    position: fixed;
+    left: 0.5%;
+    cursor: pointer;
+}
+.baixo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.olho{
+    display: flex;
+    flex-direction: row;
+}
+.button{
+    display: flex;
+    flex-direction: column;
+}
+.down{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.inputWithIcon input[type=text]{
+    padding-right: 40px;
+}
+.inputWithIcon{
+    position: relative;
+}
+.inputWithIcon i{
+    position: absolute;
+    right: 0;
+    top: 9px;
+    padding: 9px;
+}

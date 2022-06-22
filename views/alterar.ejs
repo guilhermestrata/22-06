@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Alterar</title>
+</head>
+<body style="background-color:rgb(48, 70, 110);height: 100vh;">
+    <div class="container">
+        <div class="logoff" onclick="window.location.href='/login'"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-power" viewBox="0 0 16 16">
+            <path d="M7.5 1v7h1V1h-1z"/>
+            <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+          </svg></i></div>
+        <h1 class="text-center text-light">Lista de Atividades</h1>
+        <h2 class="text-center text-light"><%=nome%></h2>
+        <div class="row">
+            <div class="col-md order-2">
+                <h3 class="text-light">Alterar</h3>
+                <form action="/alterar" method="post" class="form-control">
+                    <input type="hidden" name="id_u" value="<%=id%>">
+                    <input type="hidden" name="id_a" value="<%=alterar._id%>">
+                    <input type="hidden" name="nome" value="<%=nome%>">
+                    <input type="text" name="titulo" id="titulo" class="form-control" value="<%=alterar.titulo%>">
+                    <input type="date" name="data" id="data" class="form-control" value="<%=alterar.data.toISOString().slice(0,10)%>">
+                    <select name="tipo" id="tipo" class="form-control" required>
+                        <option value="0">Tipo:</option>
+                        <option value="ac" <%=alterar.tipo=='ac'?'selected':''%>>AC</option>
+                        <option value="at" <%=alterar.tipo=='at'?'selected':''%>>AT</option>
+                        <option value="rec" <%=alterar.tipo=='rec'?'selected':''%>>Rec</option>
+                        <option value="exame" <%=alterar.tipo=='exame'?'selected':''%>>Exame</option>    
+                    </select>
+                    <!--div class="input-group"-->
+                        <input type="radio" value="Teams" name="entrega" id="" <%=alterar.entrega=='Teams'?'checked':''%> class="form-check-input"> Tarefa no teams
+                        <input type="radio" value="Chat" name="entrega" id="" <%=alterar.entrega=='Chat'?'checked':''%> class="form-check-input"> Chat no teams
+                        <input type="radio" value="Formulario" name="entrega" <%=alterar.entrega=='Formulario'?'checked':''%> id="" class="form-check-input"> Forms
+                        <input type="radio" value="Email" name="entrega" id="" <%=alterar.entrega=='Email'?'checked':''%> class="form-check-input"> Email
+                        <input type="radio" value="Apresentacao" name="entrega" id="" <%=alterar.entrega=='Apresentacao'?'checked':''%> class="form-check-input"> Apresentacao
+                    <!--/div-->
+                    <select name="disciplina" id="" class="form-control" required>
+                        <option value="0">Materia:</option>
+                        <option value="bio" <%=alterar.disciplina=='bio'?'selected':''%>>Biologia</option>
+                        <option value="lp2" <%=alterar.disciplina=='lp2'?'selected':''%>>Linguagem de Programação</option>
+                        <option value="inw" <%=alterar.disciplina=='inw'?'selected':''%>>Internet Web</option>
+                        <option value="bd2" <%=alterar.disciplina=='bd2'?'selected':''%>>Banco de Dados</option>    
+                    </select>
+                    <textarea name="orientacoes" id="" cols="30" rows="10" class="form-control" placeholder='<%=alterar.instrucoes%>'><%=alterar.instrucoes%>
+                    </textarea>
+                    <div class="input-group">
+                        <button type="submit" class="btn form-control btn-outline-success">Submit</button>
+                        <button type="Voltar" class="btn form-control btn-outline-info" onclick="window.location.href='/login'">Return</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
